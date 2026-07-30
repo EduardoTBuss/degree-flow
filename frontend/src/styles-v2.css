@@ -1,0 +1,315 @@
+/* v2 styles: past columns (F1), import modal (F2), schedule panel (F3) */
+
+.mono { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12px; }
+.muted { color: var(--ink-soft); font-size: 12px; }
+
+/* past timeline columns */
+.term-column.col-past { background: repeating-linear-gradient(-45deg, var(--past-stripe-a), var(--past-stripe-a) 10px, var(--past-stripe-b) 10px, var(--past-stripe-b) 20px); border-style: solid; }
+.tc-tag-past { background: var(--tag-past); color: var(--on-accent); font-size: 9px; padding: 1px 6px; border-radius: 10px; text-transform: uppercase; }
+
+/* ---------- modal / import ---------- */
+.modal-backdrop { position: fixed; inset: 0; background: var(--backdrop); display: flex; align-items: center; justify-content: center; z-index: 50; }
+.modal { background: var(--panel); border-radius: 14px; width: min(720px, 92vw); max-height: 88vh; overflow-y: auto; box-shadow: var(--shadow-modal); }
+.modal-head { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--panel); }
+.modal-head h2 { margin: 0; font-size: 17px; }
+.modal-close { border: none; background: transparent; font-size: 26px; line-height: 1; color: var(--ink-soft); }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; padding: 16px 20px; border-top: 1px solid var(--line); position: sticky; bottom: 0; background: var(--panel); }
+
+.import-drop { padding: 30px 24px; text-align: center; }
+.import-drop input[type="file"] { margin-top: 12px; }
+.import-error { color: var(--err); margin-top: 12px; }
+.import-review { padding: 16px 20px; }
+.import-summary { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.import-warn { color: var(--warn-ink); font-size: 12px; margin: 4px 0; }
+.import-startline { display: flex; align-items: center; gap: 8px; font-size: 13px; margin: 8px 0 14px; }
+.import-table { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.import-row { display: grid; grid-template-columns: 28px 84px 1fr 120px 70px; gap: 8px; padding: 7px 10px; align-items: center; border-bottom: 1px solid var(--line-soft); font-size: 12px; }
+.import-row:last-child { border-bottom: none; }
+.import-header { background: var(--line-soft); font-weight: 600; color: var(--ink-soft); text-transform: uppercase; font-size: 10px; letter-spacing: 0.4px; }
+.import-row.is-conflict { background: var(--warn-soft); }
+.import-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.import-was { color: var(--warn-ink); font-style: normal; }
+.import-unmatched { margin-top: 12px; font-size: 12px; color: var(--ink-soft); }
+.import-unmatched ul { margin: 8px 0 0; padding-left: 18px; }
+
+/* ---------- schedule (sp-* shared by the v3 schedule page) ---------- */
+.sp-checkresult { border: 1px solid var(--line); border-radius: 8px; padding: 10px; }
+.sp-ok { color: var(--ok); margin: 0; font-size: 13px; }
+.sp-diag { font-size: 12px; margin: 4px 0; padding: 6px 8px; border-radius: 6px; }
+.sp-diag.sev-warning { background: var(--warn-soft); color: var(--warn-ink); }
+.sp-diag.sev-error { background: var(--err-soft); color: var(--err); }
+.sp-recs h4 { margin: 4px 0 8px; }
+.sp-rec { border: 1px solid var(--line); border-radius: 8px; padding: 10px; margin-bottom: 8px; }
+.sp-rec-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.sp-rec-head .btn { margin-left: auto; }
+.sp-rec-courses { display: flex; flex-wrap: wrap; gap: 5px; }
+.sp-sections { display: flex; flex-direction: column; gap: 12px; }
+.sp-course-name { border: none; background: transparent; text-align: left; font-weight: 600; padding: 0; cursor: pointer; }
+.sp-turmas { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+.sp-turma { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; display: flex; flex-direction: column; gap: 4px; }
+.sp-turma.is-chosen { border-color: var(--brand); box-shadow: inset 0 0 0 1px var(--brand); }
+.sp-turma-main { display: flex; justify-content: space-between; gap: 8px; }
+.sp-turma-label { font-weight: 600; }
+.sp-turma-time { font-size: 11px; color: var(--ink-soft); text-align: right; }
+.sp-turma-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.sp-turma-meta .btn { margin-left: auto; }
+.sp-vaga { color: var(--ok); font-size: 11px; font-weight: 600; }
+.sp-novaga { color: var(--err); font-size: 11px; font-weight: 600; }
+
+/* ===================== v3 ===================== */
+
+/* top view nav (ADR-015) — segmented control in the toolbar */
+.view-tabs { display: flex; background: var(--line-soft); border-radius: 10px; padding: 3px; gap: 2px; }
+.view-tabs button { border: none; background: transparent; border-radius: 8px; padding: 6px 14px; font-size: 13px; color: var(--ink-soft); }
+.view-tabs button:hover { color: var(--ink); }
+.view-tabs button.on { background: var(--panel); color: var(--brand); font-weight: 600; box-shadow: var(--shadow); }
+
+/* F4: "Estou em" 400 feedback (ADR-010) — full-width row inside the wrapping toolbar */
+.tb-error-row { flex-basis: 100%; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; background: var(--err-soft); border: 1px solid var(--err); border-radius: 8px; padding: 8px 12px; font-size: 12px; color: var(--err); }
+.tb-error-chips { display: inline-flex; flex-wrap: wrap; gap: 5px; }
+.tb-error-close { margin-left: auto; border: none; background: transparent; color: var(--err); font-size: 18px; line-height: 1; padding: 0 4px; }
+
+/* F6: schedule page */
+.schedule-page { flex: 1; min-height: 0; overflow-y: auto; padding: 16px 20px 40px; display: flex; flex-direction: column; gap: 14px; }
+.sched-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+.sched-head h2 { margin: 0 0 2px; font-size: 18px; }
+.sched-head .muted { margin: 0; }
+.sched-head-controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.sched-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow); }
+.sched-card h3 { margin: 0 0 8px; font-size: 14px; }
+.sched-card-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+.sched-card-head h3 { margin: 0; }
+.sched-cols { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(300px, 1fr); gap: 16px; align-items: start; }
+.sched-side-col { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+@media (max-width: 980px) {
+  .sched-cols { grid-template-columns: 1fr; }
+  .schedule-page { padding: 12px 12px 32px; }
+}
+
+/* F6d: scrape card */
+.scrape-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.scrape-head .muted { margin: 0; }
+.scrape-head h3 { margin: 0 0 2px; }
+.scrape-progress { display: flex; align-items: center; gap: 10px; margin-top: 10px; font-size: 12px; color: var(--ink-soft); }
+.scrape-progress .spinner { width: 18px; height: 18px; border-width: 2px; }
+.scrape-summary { margin-top: 10px; font-size: 12px; display: flex; flex-direction: column; gap: 6px; }
+.scrape-summary p { margin: 0; }
+.scrape-missing { margin: 4px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 3px; }
+.scrape-error { margin-top: 10px; font-size: 12px; background: var(--err-soft); color: var(--err); border-radius: 8px; padding: 8px 10px; display: flex; flex-direction: column; gap: 4px; }
+.scrape-error p { margin: 0; }
+
+/* F6a: week grid — pure CSS grid + absolute blocks; conflicts painted from server diagnostics only */
+.wg-days { display: grid; gap: 4px; margin-bottom: 4px; }
+.wg-dayname { text-align: center; font-size: 11px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.4px; }
+.wg-body { display: grid; gap: 4px; }
+.wg-hours { position: relative; }
+.wg-hour { position: absolute; right: 6px; transform: translateY(-50%); font-size: 10px; color: var(--ink-soft); }
+.wg-day { position: relative; border: 1px solid var(--line-soft); border-radius: 6px; background: repeating-linear-gradient(to bottom, var(--line-soft) 0 1px, transparent 1px 60px); }
+.wg-block { position: absolute; border: none; border-left: 3px solid var(--brand); border-radius: 6px; background: var(--brand-soft); padding: 3px 6px; text-align: left; font-size: 11px; display: flex; flex-direction: column; gap: 1px; overflow: hidden; box-shadow: var(--shadow); }
+.wg-block strong { font-size: 11px; line-height: 1.15; }
+.wg-block span { font-size: 10px; color: var(--ink-soft); }
+.wg-block:hover { filter: brightness(0.97); }
+.wg-block.is-conflict { background: var(--err-soft); border-left-color: var(--err); box-shadow: 0 0 0 2px var(--err); z-index: 2; }
+.wg-block.is-conflict span { color: var(--err); }
+.wg-legend { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; font-size: 11px; color: var(--ink-soft); }
+.wg-legend-item { display: inline-flex; align-items: center; gap: 5px; }
+.wg-dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+
+/* F6b: offer list extras */
+.sp-turma.has-conflict { border-color: var(--err); }
+.sp-turma-label { display: inline-flex; align-items: center; gap: 6px; }
+.offer-note { align-self: flex-start; background: var(--warn-soft); color: var(--warn-ink); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.offer-fresh { font-size: 10px; color: var(--ink-soft); }
+.offer-none-wrap { margin-top: 12px; }
+.offer-none-wrap .muted { margin: 0 0 6px; }
+.offer-none { display: flex; flex-wrap: wrap; gap: 5px; }
+
+/* F6c: recommendation extras */
+.sp-leftout { margin: 6px 0 0; }
+
+/* v3 (ADR-016): read-only elective offer rows (informational, not allocatable) */
+.sp-turma.is-readonly { border-style: dashed; opacity: 0.9; background: var(--surface-2, transparent); }
+.sp-turma.is-readonly .sp-turma-label { font-weight: 500; }
+
+/* ===================== v4 ===================== */
+
+/* A1 (ADR-022): theme settings button + menu in the toolbar */
+.tb-settings { position: relative; }
+.tb-settings-btn { font-size: 15px; line-height: 1; padding: 5px 9px; }
+.theme-menu {
+  position: absolute; right: 0; top: calc(100% + 6px); z-index: 40;
+  min-width: 150px; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 10px; box-shadow: var(--shadow-modal); padding: 4px;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.theme-menu-item {
+  display: flex; align-items: center; gap: 8px; border: none; background: transparent;
+  border-radius: 7px; padding: 7px 10px; font-size: 13px; color: var(--ink); text-align: left;
+}
+.theme-menu-item:hover { background: var(--line-soft); }
+.theme-menu-item:focus-visible { outline: 2px solid var(--brand); outline-offset: -2px; }
+.theme-menu-item[aria-checked="true"] { color: var(--brand); font-weight: 600; background: var(--brand-soft); }
+.theme-menu-icon { width: 16px; text-align: center; }
+
+/* A2 (ADR-021): blocked-by-prereq badge — amber (caution), never disabled */
+.sp-course-head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.chip-blocked { background: var(--warn-soft); color: var(--warn-ink); cursor: help; flex: none; }
+.sp-course.is-blocked > .sp-course-head .sp-course-name { color: var(--ink-soft); }
+
+/* A3 (ADR-020): foreign-offer badge */
+.chip-foreign { align-self: flex-start; background: var(--foreign-soft); color: var(--foreign-ink); cursor: help; }
+
+/* ---------- C1 (ADR-017/023): enrollment campaign view — tokens only ---------- */
+.campaign-page { flex: 1; min-height: 0; overflow-y: auto; padding: 16px 20px 40px; display: flex; flex-direction: column; gap: 14px; }
+.camp-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+.camp-head h2 { margin: 0 0 2px; font-size: 18px; }
+.camp-head .muted { margin: 0; max-width: 640px; }
+.camp-head-controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+/* rounds stepper — labels come from the grade's enrollment_rules (ADR-018) */
+.camp-stepper { display: flex; gap: 8px; flex-wrap: wrap; }
+.camp-step { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--panel); border-radius: 20px; padding: 7px 14px; font-size: 13px; color: var(--ink-soft); }
+.camp-step:hover { border-color: var(--brand); color: var(--ink); }
+.camp-step.on { border-color: var(--brand); background: var(--brand-soft); color: var(--brand); font-weight: 600; }
+.camp-step-order { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: var(--line-soft); font-size: 11px; font-weight: 600; color: var(--ink-soft); }
+.camp-step.on .camp-step-order { background: var(--brand); color: var(--on-accent); }
+.camp-step-count { background: var(--line-soft); color: var(--ink-soft); border-radius: 10px; padding: 0 7px; font-size: 11px; font-weight: 600; }
+.camp-round-meta { margin: 0; }
+
+.camp-cols { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(300px, 1fr); gap: 16px; align-items: start; }
+@media (max-width: 980px) {
+  .camp-cols { grid-template-columns: 1fr; }
+  .campaign-page { padding: 12px 12px 32px; }
+}
+
+/* D8: credits are a warning, never a block */
+.camp-warn-banner { background: var(--warn-soft); color: var(--warn-ink); border: 1px solid var(--warn); border-radius: 8px; padding: 10px 12px; font-size: 12px; display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+.camp-warn-banner p { margin: 0; }
+.camp-warn-note { font-weight: 600; }
+
+.camp-error { display: flex; align-items: center; gap: 8px; background: var(--err-soft); color: var(--err); border: 1px solid var(--err); border-radius: 8px; padding: 8px 10px; font-size: 12px; margin: 0 0 10px; }
+.camp-dismiss { margin-left: auto; border: none; background: transparent; color: inherit; font-size: 16px; line-height: 1; padding: 0 4px; }
+
+/* accept -> revalidated plan feedback (ADR-017) */
+.camp-sync { border: 1px solid var(--brand); background: var(--brand-soft); border-radius: 8px; padding: 10px 12px; font-size: 12px; margin-bottom: 10px; }
+.camp-sync-head { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+
+/* request cards grouped by status — left border follows the lifecycle */
+.camp-group { margin-bottom: 12px; }
+.camp-group h4 { margin: 0 0 6px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--ink-soft); }
+.camp-req { border: 1px solid var(--line); border-left-width: 4px; border-radius: 8px; padding: 8px 10px; display: flex; flex-direction: column; gap: 6px; margin-bottom: 6px; background: var(--card); }
+.camp-req.st-desejada { border-left-color: var(--falta); }
+.camp-req.st-pedida { border-left-color: var(--brand); }
+.camp-req.st-aceita { border-left-color: var(--ok); }
+.camp-req.st-negada { border-left-color: var(--err); }
+.camp-req-main { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.camp-req-name { border: none; background: transparent; text-align: left; font-weight: 600; padding: 0; cursor: pointer; color: var(--ink); }
+.camp-req-name:hover { color: var(--brand); }
+.camp-req-section { display: flex; align-items: center; gap: 8px; }
+.camp-req-actions { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.camp-chip-ok { background: var(--ok-soft); color: var(--ok); }
+.camp-note { margin: 0; font-size: 12px; color: var(--ink-soft); font-style: italic; }
+.camp-note-edit { display: flex; gap: 6px; }
+.camp-note-edit input { flex: 1; }
+
+/* criticality queue (spec 6.5) — server-ranked, the front only renders */
+.camp-queue-row { display: flex; flex-direction: column; gap: 5px; border-bottom: 1px solid var(--line-soft); padding: 9px 0; }
+.camp-queue-row:last-child { border-bottom: none; }
+.camp-queue-main { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.camp-rank { font-weight: 700; font-size: 12px; color: var(--ink-soft); min-width: 22px; }
+.camp-queue-name { border: none; background: transparent; padding: 0; text-align: left; font-weight: 600; cursor: pointer; color: var(--ink); }
+.camp-queue-name:hover { color: var(--brand); }
+.camp-queue-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding-left: 30px; }
+.camp-queue-meta select { max-width: 150px; }
+.camp-queue-meta .btn { margin-left: auto; }
+
+/* ---------- C2 (ADR-019): swap assistant (correction round) — tokens only ---------- */
+.swap-held { margin: 0 0 8px; font-size: 11px; color: var(--ink-soft); }
+.swap-sug { border: 1px solid var(--line); border-radius: 8px; padding: 10px; margin-bottom: 8px; display: flex; flex-direction: column; gap: 8px; background: var(--card); }
+.swap-sug-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.swap-sug-head .btn { margin-left: auto; }
+.swap-delta { font-weight: 700; font-size: 13px; color: var(--ok); cursor: help; }
+/* the two waves — removals process BEFORE additions (spec 6.6) */
+.swap-waves { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 640px) { .swap-waves { grid-template-columns: 1fr; } }
+.swap-wave { border: 1px dashed var(--line); border-radius: 8px; padding: 8px 10px; display: flex; flex-direction: column; gap: 6px; }
+.swap-wave h5 { margin: 0; font-size: 10px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--ink-soft); }
+.swap-wave.is-drop h5 { color: var(--err); }
+.swap-wave.is-add h5 { color: var(--ok); }
+.swap-choice { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 12px; }
+.swap-choice-name { border: none; background: transparent; padding: 0; text-align: left; font-weight: 600; color: var(--ink); cursor: pointer; }
+.swap-choice-name:hover { color: var(--brand); }
+.swap-freed { margin: 0; font-size: 11px; color: var(--ink-soft); cursor: help; }
+
+/* ---------- C2 (ADR-024): what-if simulator — stateless, nothing here persists ---------- */
+.whatif-unsaved { background: var(--brand-soft); color: var(--brand); border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 600; cursor: help; }
+.whatif-req { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; border-bottom: 1px solid var(--line-soft); padding: 7px 0; font-size: 12px; }
+.whatif-req:last-child { border-bottom: none; }
+.whatif-req-name { font-weight: 600; }
+.whatif-outcomes { margin-left: auto; display: flex; background: var(--line-soft); border-radius: 8px; padding: 2px; gap: 2px; }
+.whatif-outcomes button { border: none; background: transparent; border-radius: 6px; padding: 3px 10px; font-size: 11px; color: var(--ink-soft); }
+.whatif-outcomes button:hover { color: var(--ink); }
+.whatif-outcomes button.on-skip { background: var(--panel); color: var(--ink); font-weight: 600; box-shadow: var(--shadow); }
+.whatif-outcomes button.on-aceita { background: var(--ok-soft); color: var(--ok); font-weight: 600; }
+.whatif-outcomes button.on-negada { background: var(--err-soft); color: var(--err); font-weight: 600; }
+.whatif-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+.whatif-result { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
+.whatif-summary { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 12px; }
+/* mini timeline: the v2 term-column material (term · credits · courses), hoje x e-se */
+.whatif-grid { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
+.whatif-col { flex: 0 0 160px; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; display: flex; flex-direction: column; gap: 6px; background: var(--card); }
+.whatif-col.is-changed { border-color: var(--brand); box-shadow: inset 0 0 0 1px var(--brand); }
+.whatif-col-term { font-weight: 700; font-size: 12px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.whatif-row { font-size: 11px; color: var(--ink-soft); display: flex; align-items: baseline; gap: 6px; }
+.whatif-row-tag { flex: none; font-size: 9px; text-transform: uppercase; letter-spacing: 0.4px; background: var(--line-soft); color: var(--ink-soft); border-radius: 8px; padding: 1px 6px; }
+.whatif-row.is-proj .whatif-row-tag { background: var(--brand-soft); color: var(--brand); }
+.whatif-diffchips { display: flex; flex-wrap: wrap; gap: 4px; }
+.chip-gain { background: var(--ok-soft); color: var(--ok); }
+.chip-loss { background: var(--err-soft); color: var(--err); }
+.whatif-diags h5 { margin: 8px 0 4px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--ink-soft); }
+.whatif-gone { background: var(--ok-soft); color: var(--ok); text-decoration: line-through; }
+
+/* ---------- C3 (spec 6.7/8.4): special-enrollment advisor — tokens only ---------- */
+.special-counter { background: var(--brand-soft); color: var(--brand); border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 600; cursor: help; }
+.special-counter.is-maxed { background: var(--warn-soft); color: var(--warn-ink); }
+/* rescrape freshness nudge (spec 6.7) — vacancies change between rounds */
+.special-hint { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; background: var(--warn-soft); color: var(--warn-ink); border: 1px solid var(--warn); border-radius: 8px; padding: 8px 10px; font-size: 12px; margin: 0 0 10px; }
+.special-hint .btn { margin-left: auto; }
+.special-cand { border: 1px solid var(--line); border-radius: 8px; padding: 10px; margin-bottom: 8px; display: flex; flex-direction: column; gap: 6px; background: var(--card); }
+.special-cand-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.special-cand-head .btn { margin-left: auto; }
+.special-score { font-weight: 700; font-size: 13px; color: var(--brand); cursor: help; flex: none; }
+/* auditable breakdown chips — positive parts reuse chip-gain, negative chip-loss */
+.special-breakdown { display: flex; flex-wrap: wrap; gap: 4px; }
+/* D5: full section — penalized and flagged, never excluded */
+.chip-full { background: var(--err-soft); color: var(--err); cursor: help; flex: none; }
+.special-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 12px; }
+.special-alts { display: inline-flex; align-items: center; gap: 4px; flex-wrap: wrap; font-size: 11px; color: var(--ink-soft); }
+.special-conflicts { margin: 0; font-size: 11px; color: var(--err); cursor: help; }
+
+/* ---------- v5 F2b (ADR-029/030): pin-a-course on the recommendation — tokens only ---------- */
+/* Pin toggle in the OfferList course head: muted (grayscale) when unpinned, brand when pinned. */
+.sp-pin { flex: none; border: 1px solid var(--line); background: transparent; border-radius: 6px; padding: 1px 5px; font-size: 13px; line-height: 1.4; cursor: pointer; filter: grayscale(1); opacity: 0.55; }
+.sp-pin:hover { border-color: var(--brand); opacity: 1; }
+.sp-pin:focus-visible { outline: 2px solid var(--brand); outline-offset: 1px; opacity: 1; }
+.sp-pin.is-pinned { filter: none; opacity: 1; background: var(--brand-soft); border-color: var(--brand); }
+.sp-pin:disabled { opacity: 0.3; cursor: not-allowed; filter: grayscale(1); }
+/* Status badges of the server's `pinned[]` (D5: status/reason come from the server). */
+.chip-pin { background: var(--brand-soft); color: var(--brand); flex: none; }
+.chip-pin-warn { background: var(--warn-soft); color: var(--warn-ink); flex: none; }
+.chip-pin-err { background: var(--err-soft); color: var(--err); flex: none; }
+/* Per-pinned-course outcome rows in the RecommendationCard. */
+.sp-pinned-list { list-style: none; margin: 6px 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.sp-pin-row { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; font-size: 12px; }
+.sp-pin-reason { flex-basis: 100%; font-size: 11px; color: var(--ink-soft); }
+/* Infeasible banner (D5): releasing the pins is an explicit user action. */
+.sp-pin-infeasible-msg { margin: 0 0 6px; }
+.offer-none-item { display: inline-flex; align-items: center; gap: 2px; }
+.sp-pin-sm { font-size: 11px; padding: 0 4px; }
+
+/* v5 F1c (ADR-028): elective catalog + semester commit — tokens only (ADR-022) */
+.chip-optativa { background: var(--optativa-soft); color: var(--optativa-ink); flex: none; }
+.sp-commit { border: 1px solid var(--brand); background: var(--brand-soft); }
+.sp-commit .btn { margin-top: 4px; }
+.sp-pick { display: flex; align-items: center; gap: 8px; }
+.sp-pick select { flex: 1; }

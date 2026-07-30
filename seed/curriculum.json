@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "curso": "Engenharia de Computação",
+    "codigo_curso": "3910",
+    "regras_matricula": {
+      "rodadas": [
+        { "key": "rematricula", "label": "Rematrícula", "order": 1,
+          "scope": "proprio_curso",
+          "max_adds": null, "allows_drops": false },
+        { "key": "correcao", "label": "Correção de matrícula", "order": 2,
+          "scope": "proprio_curso",
+          "max_adds": null, "allows_drops": true,
+          "drops_before_adds": true },
+        { "key": "especial", "label": "Matrícula especial", "order": 3,
+          "scope": "qualquer_curso",
+          "max_adds": 2,
+          "allows_drops": false,
+          "note": "sujeita à aprovação dos dois coordenadores" }
+      ]
+    },
+    "versao_grade": "2019/1",
+    "universidade": "UFPel",
+    "observacao_oferta": "o campo 'offer' é placeholder 'both'; o app deve deixar o usuário editar por cadeira (/1, /2 ou ambos). Ainda NÃO confirmado com dados reais."
+  },
+  "requisitos_integralizacao": {
+    "obrigatorias_horas": 2663.3,
+    "optativas_horas_min": 226.6,
+    "atividades_complementares_horas_min": 315,
+    "atividades_complementares_regra": "mín. 120h em ao menos duas modalidades (ensino/pesquisa/extensão)",
+    "atividades_livres_horas_min": 217,
+    "duracao_semestres": "10 a 20",
+    "total_horas_min": 3427
+  },
+  "reformas": [
+    {
+      "id": "reforma-2027-1",
+      "vigencia": "2027/1",
+      "descricao": "Mudança de grade modelada para demonstrar transições curriculares.",
+      "regras": [
+        { "tipo": "merge", "de": ["22000226", "22000238"], "para": "Circuitos Digitais (unificada)", "creditos": 6, "hours": 90 },
+        { "tipo": "merge", "de": ["22000230", "22000271"], "para": "Eletrônica Básica (unificada)", "creditos": 6, "hours": 90 },
+        { "tipo": "swap", "sai_obrigatoria": "22000237", "vira": "optativa", "entra_obrigatoria": "22000301" }
+      ],
+      "regras_transicao": "A demo trata a transição como opcional."
+    }
+  ],
+  "courses": [
+    { "code": "22000294", "name": "Algoritmos e Programação", "short": "AlgProg", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 1, "prereqs": [], "offer": "both" },
+    { "code": "11100058", "name": "Cálculo 1", "short": "Cálc 1", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 1, "prereqs": [], "offer": "both" },
+    { "code": "22000225", "name": "Introdução à Eng. de Computação", "short": "Intro EC", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 1, "prereqs": [], "offer": "both" },
+    { "code": "22000224", "name": "Lógica para Computação", "short": "Lógica", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 1, "prereqs": [], "offer": "both" },
+    { "code": "22000293", "name": "Sistemas Discretos", "short": "Sist Discr", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 1, "prereqs": [], "offer": "both" },
+
+    { "code": "11100110", "name": "Álgebra Linear e Geometria Analítica", "short": "ALGA", "credits": 6, "hours": 90, "type": "obrigatoria", "sem_sugerido": 2, "prereqs": [], "offer": "both" },
+    { "code": "11100059", "name": "Cálculo 2", "short": "Cálc 2", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 2, "prereqs": ["11100058"], "offer": "both" },
+    { "code": "22000226", "name": "Circuitos Digitais I", "short": "CD I", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 2, "prereqs": ["22000225"], "offer": "both" },
+    { "code": "11090032", "name": "Física Básica I", "short": "Fís I", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 2, "prereqs": [], "offer": "both" },
+    { "code": "22000296", "name": "Programação de Computadores", "short": "Prog Comp", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 2, "prereqs": ["22000294"], "offer": "both" },
+
+    { "code": "22000297", "name": "Algoritmos e Estruturas de Dados I", "short": "AED I", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 3, "prereqs": ["22000296"], "offer": "both" },
+    { "code": "11100060", "name": "Cálculo 3", "short": "Cálc 3", "credits": 6, "hours": 90, "type": "obrigatoria", "sem_sugerido": 3, "prereqs": ["11100059", "11100110"], "offer": "both" },
+    { "code": "22000238", "name": "Circuitos Digitais II", "short": "CD II", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 3, "prereqs": ["22000226"], "offer": "both" },
+    { "code": "06730016", "name": "Epistemologia", "short": "Epist", "credits": 2, "hours": 30, "type": "obrigatoria", "sem_sugerido": 3, "prereqs": [], "offer": "both" },
+    { "code": "11090033", "name": "Física Básica II", "short": "Fís II", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 3, "prereqs": ["11090032"], "offer": "both" },
+    { "code": "22000197", "name": "Linguagens Formais", "short": "Ling Form", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 3, "prereqs": ["22000293"], "offer": "both" },
+
+    { "code": "22000299", "name": "Algoritmos e Estruturas de Dados II", "short": "AED II", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 4, "prereqs": ["22000297"], "offer": "both" },
+    { "code": "22000236", "name": "Análise de Circuitos I", "short": "AC I", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 4, "prereqs": [], "offer": "both" },
+    { "code": "22000181", "name": "Arquitetura e Organização de Computadores I", "short": "AOC I", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 4, "prereqs": ["22000238"], "offer": "both" },
+    { "code": "11100050", "name": "Equações Diferenciais", "short": "Eq Dif", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 4, "prereqs": ["11100060"], "offer": "both" },
+    { "code": "11090034", "name": "Física Básica III", "short": "Fís III", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 4, "prereqs": ["11090033"], "offer": "both" },
+    { "code": "22000201", "name": "Programação Orientada a Objetos", "short": "POO", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 4, "prereqs": ["22000296"], "offer": "both" },
+
+    { "code": "22000182", "name": "Arquitetura e Organização de Computadores II", "short": "AOC II", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 5, "prereqs": ["22000181"], "offer": "both" },
+    { "code": "22000230", "name": "Eletrônica Básica I", "short": "EB I", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 5, "prereqs": ["22000236"], "offer": "both" },
+    { "code": "22000298", "name": "Estatística Básica para Computação", "short": "Estat", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 5, "prereqs": ["11100059"], "offer": "both" },
+    { "code": "22000199", "name": "Metodologia Científica para Computação", "short": "Metod", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 5, "prereqs": ["06730016"], "offer": "both" },
+    { "code": "22000237", "name": "Programação de Sistemas", "short": "PS", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 5, "prereqs": ["22000181", "22000296"], "offer": "both" },
+    { "code": "22000205", "name": "Teoria da Computação", "short": "Teoria", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 5, "prereqs": ["22000197"], "offer": "both" },
+
+    { "code": "22000267", "name": "Análise de Circuitos II", "short": "AC II", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 6, "prereqs": ["22000236"], "offer": "both" },
+    { "code": "22000268", "name": "Cálculo Numérico Computacional", "short": "Cálc Num", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 6, "prereqs": ["11100059", "22000296"], "offer": "both" },
+    { "code": "22000186", "name": "Computação e Sociedade", "short": "Comp Soc", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 6, "prereqs": [], "offer": "both" },
+    { "code": "22000269", "name": "Sistemas Digitais Avançados", "short": "SDA", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 6, "prereqs": ["22000238"], "offer": "both" },
+    { "code": "22000270", "name": "Sistemas Operacionais", "short": "SO", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 6, "prereqs": ["22000182", "22000297"], "offer": "both" },
+
+    { "code": "22000240", "name": "Concepção de Circuitos Integrados", "short": "CCI", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 7, "prereqs": ["22000238"], "offer": "both" },
+    { "code": "22000271", "name": "Eletrônica Básica II", "short": "EB II", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 7, "prereqs": ["22000230"], "offer": "both" },
+    { "code": "22000273", "name": "Redes de Computadores", "short": "Redes", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 7, "prereqs": ["22000270"], "offer": "both" },
+    { "code": "22000178", "name": "Sistemas e Sinais", "short": "SS", "credits": 6, "hours": 90, "type": "obrigatoria", "sem_sugerido": 7, "prereqs": ["11100050"], "offer": "both" },
+
+    { "code": "22000189", "name": "Engenharia de Software I", "short": "ES I", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 8, "prereqs": ["22000201"], "offer": "both" },
+    { "code": "22000272", "name": "Introd. Processamento Paralelo e Distribuído", "short": "PPD", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 8, "prereqs": ["22000270"], "offer": "both" },
+    { "code": "22000303", "name": "Projeto de Compiladores", "short": "Compil", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 8, "prereqs": ["22000197"], "offer": "both" },
+
+    { "code": "22000274", "name": "Princípios de Comunicação", "short": "PC", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 9, "prereqs": ["11090034", "22000178"], "offer": "both" },
+    { "code": "22000305", "name": "Trabalho de Conclusão de Curso I", "short": "TCC I", "credits": 8, "hours": 120, "type": "obrigatoria", "sem_sugerido": 9, "prereqs": ["22000199"], "offer": "both" },
+
+    { "code": "22000275", "name": "Sistemas de Controle", "short": "SC", "credits": 4, "hours": 60, "type": "obrigatoria", "sem_sugerido": 10, "prereqs": ["22000178"], "offer": "both" },
+    { "code": "22000306", "name": "Trabalho de Conclusão de Curso II", "short": "TCC II", "credits": 8, "hours": 120, "type": "obrigatoria", "sem_sugerido": 10, "prereqs": ["22000305"], "offer": "both" },
+
+    { "code": "22000188", "name": "Conceitos de Linguagens de Programação", "short": "CLP", "credits": 4, "hours": 60, "type": "optativa", "sem_sugerido": null, "prereqs": [], "offer": "both" },
+    { "code": "22000229", "name": "Tópicos Especiais em Computação IV", "short": "TE IV", "credits": 4, "hours": 60, "type": "optativa", "sem_sugerido": null, "prereqs": [], "offer": "both" },
+    { "code": "22000349", "name": "Tópicos Especiais em Computação VIII", "short": "TE VIII", "credits": 4, "hours": 60, "type": "optativa", "sem_sugerido": null, "prereqs": [], "offer": "both" },
+    { "code": "22000301", "name": "Fundamentos de Inteligência Artificial", "short": "FIA", "credits": 4, "hours": 60, "type": "optativa", "sem_sugerido": null, "prereqs": [], "offer": "both" },
+
+    { "code": "22000575", "name": "Atividades Complementares", "short": "Ativ Compl", "credits": 21, "hours": 315, "type": "atividade", "sem_sugerido": null, "prereqs": [], "offer": "both" }
+  ]
+}

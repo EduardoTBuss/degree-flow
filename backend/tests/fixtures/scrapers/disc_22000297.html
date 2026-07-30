@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml" lang="pt-BR">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ALGORITMOS E ESTRUTURAS DE DADOS I | UFPel</title>
+	<link rel="canonical" href="https://institucional.ufpel.edu.br/disciplinas/cod/22000297">
+	<meta property="og:url" content="https://institucional.ufpel.edu.br/disciplinas/cod/22000297">
+	<meta property="og:title" content="ALGORITMOS E ESTRUTURAS DE DADOS I | UFPel">
+	<meta property="og:image" content="https://institucional.ufpel.edu.br/img/banner_fb.png">
+	<meta property="og:site_name" content="Portal Institucional UFPel">
+	<meta property="og:description" content="O Portal Institucional UFPel disponibiliza informações de cursos, disciplinas, projetos, servidores e unidades da Universidade Federal de Pelotas.">
+	<meta property="og:type" content="website">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@UFPel">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon32.png">
+	<link rel="apple-touch-icon" href="/img/favicon512.png">
+	<meta name="msapplication-TileImage" content="/img/favicon512.png">
+	<link rel="stylesheet" href="/css/datatables.css">
+	<link rel="stylesheet" href="/vendor/OrgChart/css/jquery.orgchart.min.css">
+	<link rel="stylesheet" href="/vendor/fontawesome/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="/css/style.css?ver=1728351342">
+	<script src="/vendor/jquery-3.3.1.min.js"></script>
+	<script src="/vendor/jquery.accordion.js"></script>
+	<script src="/vendor/datatables/datatables.min.js"></script>
+	<script src="/vendor/OrgChart/js/jquery.orgchart.js"></script>
+	<script src="/vendor/js-cookie/js.cookie.js"></script>
+	<script src="/vendor/rwdimagemaps/jquery.rwdImageMaps.min.js"></script>
+	<script src="/js/main.js"></script>
+	<script src="/js/disciplinas.js"></script>
+	<script type='text/javascript'>
+	var dadosPHP = { "lang": "pt", "All": "Todos" };
+	</script>
+<!-- Piwik -->
+	<script type="text/javascript">
+		var _paq = _paq || [];
+		_paq.push(["setDomains", ["*.institucional.ufpel.edu.br"]]);
+		_paq.push(['trackPageView']);
+		_paq.push(['enableLinkTracking']);
+		(function() {
+			var u="https://stats.ufpel.edu.br/";
+			_paq.push(['setTrackerUrl', u+'piwik.php']);
+			_paq.push(['setSiteId', 10]);
+			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+			g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+		})();
+	</script>
+	<noscript><p><img src="https://stats.ufpel.edu.br/piwik.php?idsite=10" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+</head>
+
+<body class="disciplinas">
+
+	<header id="topo" class="header-site">
+		<div id="barra-acessibilidade" class="wrapper barra-acessibilidade clearfix">
+			<ul class="atalhos-acessibilidade atalhos-acessibilidade-desktop">
+				<li><a accesskey="1" href="#conteudo">Ir para o conteúdo <span class="corFundo">1</span></a></li>
+				<li><a accesskey="2" href="#menu_principal" id="irMenu">Ir para o menu <span class="corFundo">2</span></a></li>
+				<li><a accesskey="3" href="#campoBusca" id="irBusca">Ir para a busca <span class="corFundo">3</span></a></li>
+			</ul>
+			<ul class="atalhos-acessibilidade atalhos-acessibilidade-gerais">
+				<li><a accesskey="5" href="/sobre/acessibilidade" class="caps">Acessibilidade <span class="corFundo">5</span></a></li>
+				<li><a accesskey="6" href="#contraste" id="contraste" class="caps">Contraste <span class="corFundo">6</span></a></li>
+				<li><a accesskey="7" href="/sobre/mapa-do-site" class="caps">Mapa do site <span class="corFundo">7</span></a></li>
+			</ul>
+		</div>
+
+		<div class="wrapper">
+			<div class="header-conteudo cor-borda clearfix">
+				<h1>
+					<a href="/" class="cor-texto">Portal Institucional<span class="sigla-ufpel">UFPEL</span></a>
+				</h1>
+				<div id="pesquisa_global" class="pesquisa_global">
+					<i class="pesquisa_global_botao_busca fas fa-search"></i>
+					<input id="pesquisa_global_elastic" class="pesquisa_elastic_interno" placeholder="pesquisar..." value="" type="text">
+					<i class="pesquisa_global_botao_fechar fas fa-times"></i>
+				</div>
+
+				<i class="menu-principal-mobile-abrir fas fa-bars"></i>
+				<nav class="menu-principal">
+					<div class="menu-principal-mobile-titulo">
+						<a href="/" class="cor-texto">Portal Institucional<span class="sigla-ufpel">UFPEL</span></a>
+					</div>
+					<i class="menu-principal-mobile-fechar fas fa-times"></i>
+					<ul>
+<li class="item-menu cursos cor-borda cor-texto"><a href="/cursos">Cursos</a></li><li class="item-menu disciplinas cor-borda cor-texto item-menu-ativo"><a href="/disciplinas">Disciplinas</a></li><li class="item-menu projetos cor-borda cor-texto"><a href="/projetos">Projetos</a></li><li class="item-menu servidores cor-borda cor-texto"><a href="/servidores">Servidores</a></li><li class="item-menu unidades cor-borda cor-texto"><a href="/unidades">Unidades</a></li><li class="item-menu gestao cor-borda cor-texto"><a href="/gestao">Gestão</a></li><li class="item-menu sobre cor-borda cor-texto"><a href="/sobre">Sobre</a></li>					</ul>
+				</nav>
+
+			</div>
+		</div>
+	</header>
+	<div class="wrapper-conteudo cor-borda">
+
+
+	<article id="conteudo" class="conteudo disciplinas">
+
+
+		<div  class="conteudo-principal conteudo-principal-full">
+
+			<div class="ficha-dados cor-borda">
+
+				<div class="ficha-label">Nome da Atividade</div>
+				<div class="ficha-campo caps maior cor-texto">ALGORITMOS E ESTRUTURAS DE DADOS I</div>
+
+				<div class="ficha-label">CÓDIGO</div>
+				<div class="ficha-campo">22000297</div>
+
+				<div class="ficha-label">Carga Horária</div>
+				<div class="ficha-campo">60 horas</div>
+
+				<div class="ficha-label">Tipo de Atividade</div>
+				<div class="ficha-campo">DISCIPLINA</div>
+
+				<div class="ficha-label">Periodicidade</div>
+				<div class="ficha-campo">Semestral</div>
+
+
+				<div class="ficha-label">Unidade responsável</div>
+				<div class="ficha-campo"><a href="/unidades/id/443">Centro de Desenvolvimento Tecnológico</a></div>
+
+<div class="ficha-label">CRÉDITOS</div><div class="ficha-campo">4</div><div class="ficha-label">CARGA HORÁRIA TEÓRICA</div><div class="ficha-campo">2</div><div class="ficha-label">CARGA HORÁRIA PRÁTICA</div><div class="ficha-campo">2</div><div class="ficha-label">CARGA HORÁRIA OBRIGATÓRIA</div><div class="ficha-campo">4</div><div class="ficha-label">FREQUÊNCIA APROVAÇÃO</div><div class="ficha-campo">75%</div><div class="ficha-label">NOTA MÉDIA APROVAÇÃO</div><div class="ficha-campo">7</div>			</div> <!-- .ficha-dados -->
+
+			<div id="informacoes" data-accordion-group>
+				<div class="accordion open cor-borda" data-accordion>
+					<h3 data-control class="cor-fundo">Ementa</h3>
+					<div data-content>
+						<div class="accordion-content">Introdução à análise de complexidade de algoritmos. Conceitos de abtração de dados. Algoritmos de ordenação e suas implementações. Solução de problemas através de divisão e conquista. Estruturas de dados fundamentais e suas implementações. Estruturas de dicionário com árvores binárias.</div>
+					</div>
+				</div>
+				<div class="accordion cor-borda" data-accordion>
+					<h3 data-control class="cor-fundo">Objetivos</h3>
+					<div data-content>
+						<div class="accordion-content">
+							<p><strong>Objetivo Geral:</strong></p>
+							Introduzir conceitos fundamentais de desenvolvimento e análise de soluções eficientes para problemas através de algoritmos e estruturas de dados.						</div>
+					</div>
+				</div>
+				<div class="accordion cor-borda" data-accordion>
+					<h3 data-control class="cor-fundo">Conteúdo Programático</h3>
+					<div data-content>
+						<div class="accordion-content">1. Introdução à disciplina, revisão de conceitos anteriores<br />
+2. Introdução à Análise de Algoritmos<br />
+• Dimensões de complexidade (tempo, espaço)<br />
+• Técnicas de análise<br />
+• Análise de recorrência<br />
+3. Divisão e Conquista<br />
+4. Algoritmos de Ordenação/Classificação<br />
+• Insertion Sort<br />
+• Selection Sort<br />
+• Merge Sort<br />
+• Quick Sort<br />
+5. Abstração de dados, tipos abstratos de dados<br />
+6. Estruturas de Dados Elementares<br />
+• Listas<br />
+• Pilhas<br />
+• Filas<br />
+• Filas de prioridade (heaps)<br />
+7. Estruturas de Dicionário com Árvores<br />
+• Conceito de Árvores<br />
+• Árvores de Pesquisa Binária<br />
+• Árvores auto-balanceadas (AVL, Vermelho-e-Preta)</div>
+					</div>
+				</div>
+				<div class="accordion cor-borda" data-accordion>
+					<h3 data-control class="cor-fundo">Bibliografia</h3>
+					<div data-content>
+						<div class="accordion-content">
+							<p><strong>Bibliografia Básica:</strong></p>
+							<ul>
+<li>LEISERSON, Charles, RIVEST, Ronald, CORMEN, Thomas. Algoritmos - Teoria e Prática. Editora Campus. ISBN 8535209263. </li><li>SEDGEWICK, Robert. Algorithms in C, 3rd. edition, vol. 1, Addison Wesley Longman, 1998. ISBN 0201314525.</li><li>ROBERTS, Eric. Programming Abstractions in C: A Second Course in Computer Science. Addison-Wesley, 1997. ISBN 0201545411.</li>							</ul>
+<br><p><strong>Bibliografia Complementar:</strong></p><ul><li>TENENBAUM, Aaron M., AUGENSTEIN, Moshe J., LANGSAM, Yediduyah. Estrutura de dados usando C. São Paulo: Pearson Makron Books, 2004. 883 p. ISBN 8534603480</li><li>LORENZI, Fabiana, MATTOS, Patrícia Noll de, CARVALHO, Tanisi Pe- reira de. Estruturas de dados. São Paulo: Thomson, 2007. 175 p. ISBN 9788522105564 </li><li>EDELWEISS, Nina. Estruturas de dados. Porto Alegre: Bookman, 2009. 261 p. (Livros didáticos do Instituto de informática da UFRGS) ISBN 9788577803811</li><li>SZWARCFITER, Jayme Luiz. Estruturas de dados e seus algorítmos. 2. ed. Rio de Janeiro: LTC, 1994. 320 p. ISBN 852l610149. </li></ul>
+						</div>
+					</div>
+				</div>
+			</div> <!-- #informacoes -->
+
+
+			<h3>Turmas Ofertadas</h3>
+			<table class="tabela-dados cor-borda">
+				<tr class="cor-fundo">
+					<th>Turma</th>
+					<th>Período</th>
+					<th>Vagas</th>
+					<th>Matriculados</th>
+					<th>Curso / Horários</th>
+					<th>Professores</th>
+				</tr>
+
+				<tr>
+					<td>M3</td>
+					<td>
+2026 / 1					</td>
+					<td>24</td>
+					<td>23					<td>
+<a href="/cursos/cod/3910">Engenharia de Computação (Bacharelado)</a><br><div class="tooltip"><a href="#"><i class="fas fa-plus-square" aria-hidden="true"></i> Horários</a><div class="tooltip-container"><table class="grade-horarios cor-borda"><tr class="cor-fundo"><th>Manhã</th><th>Tarde</th><th>Noite</th></tr><tr><td></td><td><span class="grade-horarios-dia">TER</span>15:10 - 16:00<br><span class="grade-horarios-dia"></span>16:00 - 16:50<br><span class="grade-horarios-dia">QUI</span>13:30 - 14:20<br><span class="grade-horarios-dia"></span>14:20 - 15:10<br></td><td></td></tr></table></div></div>					</td>
+					<td>
+<a href="/servidores/id/211188">DOCENTE DE TESTE</a><div class="ficha-label">Professor responsável pela turma</div><br>					</td>
+
+				</tr>
+				<tr>
+					<td>M1</td>
+					<td>
+2026 / 1					</td>
+					<td>25</td>
+					<td>24					<td>
+<a href="/cursos/cod/3900">Ciência da Computação (Bacharelado)</a><br><a href="/cursos/cod/3910">Engenharia de Computação (Bacharelado)</a><br><div class="tooltip"><a href="#"><i class="fas fa-plus-square" aria-hidden="true"></i> Horários</a><div class="tooltip-container"><table class="grade-horarios cor-borda"><tr class="cor-fundo"><th>Manhã</th><th>Tarde</th><th>Noite</th></tr><tr><td></td><td><span class="grade-horarios-dia">QUI</span>15:10 - 16:00<br><span class="grade-horarios-dia"></span>16:00 - 16:50<br><span class="grade-horarios-dia">SEX</span>13:30 - 14:20<br><span class="grade-horarios-dia"></span>14:20 - 15:10<br></td><td></td></tr></table></div></div>					</td>
+					<td>
+<a href="/servidores/id/150465">OUTRO DOCENTE DE TESTE</a><div class="ficha-label">Professor responsável pela turma</div><br>					</td>
+
+				</tr>
+				<tr>
+					<td>M2</td>
+					<td>
+2026 / 1					</td>
+					<td>24</td>
+					<td>21					<td>
+<a href="/cursos/cod/3900">Ciência da Computação (Bacharelado)</a><br><a href="/cursos/cod/3910">Engenharia de Computação (Bacharelado)</a><br><div class="tooltip"><a href="#"><i class="fas fa-plus-square" aria-hidden="true"></i> Horários</a><div class="tooltip-container"><table class="grade-horarios cor-borda"><tr class="cor-fundo"><th>Manhã</th><th>Tarde</th><th>Noite</th></tr><tr><td></td><td><span class="grade-horarios-dia">QUI</span>15:10 - 16:00<br><span class="grade-horarios-dia"></span>16:00 - 16:50<br><span class="grade-horarios-dia">SEX</span>15:10 - 16:00<br><span class="grade-horarios-dia"></span>16:00 - 16:50<br></td><td></td></tr></table></div></div>					</td>
+					<td>
+<a href="/servidores/id/150465">OUTRO DOCENTE DE TESTE</a><div class="ficha-label">Professor responsável pela turma</div><br>					</td>
+
+				</tr>
+				<tr>
+					<td>M4</td>
+					<td>
+2026 / 1					</td>
+					<td>24</td>
+					<td>15					<td>
+<a href="/cursos/cod/3900">Ciência da Computação (Bacharelado)</a><br><a href="/cursos/cod/3910">Engenharia de Computação (Bacharelado)</a><br><div class="tooltip"><a href="#"><i class="fas fa-plus-square" aria-hidden="true"></i> Horários</a><div class="tooltip-container"><table class="grade-horarios cor-borda"><tr class="cor-fundo"><th>Manhã</th><th>Tarde</th><th>Noite</th></tr><tr><td></td><td><span class="grade-horarios-dia">TER</span>15:10 - 16:00<br><span class="grade-horarios-dia"></span>16:00 - 16:50<br><span class="grade-horarios-dia">QUI</span>15:10 - 16:00<br><span class="grade-horarios-dia"></span>16:00 - 16:50<br></td><td></td></tr></table></div></div>					</td>
+					<td>
+<a href="/servidores/id/211188">DOCENTE DE TESTE</a><div class="ficha-label">Professor responsável pela turma</div><br>					</td>
+
+				</tr>
+			</table>
+
+
+						<h3>Disciplinas Equivalentes</h3>
+			<table class="tabela-dados cor-borda">
+				<tr class="cor-fundo">
+<!--					<th>Equivalência</th> -->
+					<th>Disciplina</th>
+					<th>Curso</th>
+				</tr>
+
+				<tr>
+<!--					<td>36721</td> -->
+					<td><a href="/disciplinas/id/10169">ESTRUTURA DE DADOS I</a></td>
+					<td><a href="/cursos/cod/3900">Ciência da Computação (Bacharelado)</a></td>
+				</tr>
+				<tr>
+<!--					<td>37021</td> -->
+					<td><a href="/disciplinas/id/10169">ESTRUTURA DE DADOS I</a></td>
+					<td><a href="/cursos/cod/3910">Engenharia de Computação (Bacharelado)</a></td>
+				</tr>
+			</table>
+
+
+
+		</div> <!-- .conteudo-principal -->
+
+		<div class="clearfix"></div>
+
+	</article>
+
+		<div class="link-topo" title="Voltar ao topo">
+			<i class="fas fa-arrow-alt-circle-up fa-3x" aria-hidden="true"></i>
+		</div>
+		<p class="page-time">
+Página gerada em 09/07/2026 02:32:44 (consulta levou 0.161779s)		</p>
+
+	</div> <!-- .wrapper-conteudo -->
+
+	<footer class="site-rodape">
+		<div class="site-rodape-esq">
+			<a href="https://ufpel.edu.br"><img src="/img/marca-ufpel.png" class="logo-ufpel-rodape" alt="Portal UFPel"></a>
+		</div>
+		<div class="site-rodape-centro">
+			<p><a href="https://ufpel.edu.br">Universidade Federal de Pelotas</a></p>
+			<p>Superintendência de Gestão de Tecnologia da Informação e Comunicação</p>
+		</div>
+		<div class="site-rodape-dir">
+			<a href="https://cobalto.ufpel.edu.br"><img src="/img/cobalto-fff-250.png" class="logo-cobalto-rodape" alt="COBALTO - Sistema Integrado de Gestão"></a>
+		</div>
+	</footer>
+
+</body>
+</html>

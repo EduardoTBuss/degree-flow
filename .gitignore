@@ -1,0 +1,27 @@
+# Runtime data (SQLite lives here, regenerated from the seed)
+/data/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+backend/.venv/
+.pytest_cache/
+*.egg-info/
+
+# Node / frontend
+node_modules/
+frontend/dist/
+
+# Editors / OS
+.claude/
+.notes/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local environment
+.env
+.env.*
+!.env.example
