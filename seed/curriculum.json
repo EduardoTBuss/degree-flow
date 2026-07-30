@@ -20,7 +20,7 @@
     },
     "versao_grade": "2019/1",
     "universidade": "UFPel",
-    "observacao_oferta": "o campo 'offer' é placeholder 'both'; o app deve deixar o usuário editar por cadeira (/1, /2 ou ambos). Ainda NÃO confirmado com dados reais."
+    "observacao_oferta": "The 'offer' field currently uses the 'both' placeholder. Users can adjust each course to /1, /2, or both; this has not yet been validated against real offering data."
   },
   "requisitos_integralizacao": {
     "obrigatorias_horas": 2663.3,
@@ -35,13 +35,13 @@
     {
       "id": "reforma-2027-1",
       "vigencia": "2027/1",
-      "descricao": "Mudança de grade modelada para demonstrar transições curriculares.",
+      "descricao": "A modeled curriculum change used to demonstrate version transitions.",
       "regras": [
         { "tipo": "merge", "de": ["22000226", "22000238"], "para": "Circuitos Digitais (unificada)", "creditos": 6, "hours": 90 },
         { "tipo": "merge", "de": ["22000230", "22000271"], "para": "Eletrônica Básica (unificada)", "creditos": 6, "hours": 90 },
         { "tipo": "swap", "sai_obrigatoria": "22000237", "vira": "optativa", "entra_obrigatoria": "22000301" }
       ],
-      "regras_transicao": "A demo trata a transição como opcional."
+      "regras_transicao": "The demo treats this transition as optional."
     }
   ],
   "courses": [

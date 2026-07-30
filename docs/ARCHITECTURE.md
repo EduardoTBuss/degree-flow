@@ -1,103 +1,101 @@
-# Arquitetura do Degree Flow
+# Degree Flow Architecture
 
-## Estado atual
+## Current state
 
-O Degree Flow é uma demo local e monousuário. A aplicação reúne um frontend
-React, uma API FastAPI, um motor de planejamento sem I/O e persistência SQLite.
-O backend também serve o build do frontend, permitindo executar tudo em um
-único endereço local.
+Degree Flow is a local, single-user demo. It combines a React frontend, a
+FastAPI service, an I/O-free planning engine, and SQLite persistence. The
+backend also serves the frontend build, so the complete application runs from
+one local address.
 
 ```text
 React + Vite
-     │  /api/v1
-     ▼
+     |  /api/v1
+     v
 FastAPI
-     ├── engine: regras e algoritmos puros
-     ├── importers/scrapers: adaptadores externos
-     └── persistence: SQLAlchemy + SQLite
+     |-- engine: pure rules and algorithms
+     |-- importers/scrapers: external adapters
+     `-- persistence: SQLAlchemy + SQLite
 ```
 
-## Componentes
+## Components
 
 ### Frontend
 
-O frontend fica em `frontend/` e usa React, TypeScript, Vite, React Flow e
-TanStack Query. Ele apresenta três áreas principais:
+The frontend lives in `frontend/` and uses React, TypeScript, Vite, React Flow,
+and TanStack Query. Its main areas cover:
 
-- fluxograma da grade e planejamento por semestre;
-- ofertas, horários e recomendações;
-- acompanhamento das etapas de matrícula.
+- interactive curriculum flow and semester planning;
+- course offerings, schedules, and recommendations;
+- enrollment-stage tracking.
 
-A interface consome somente a API. Validação de pré-requisitos, conflitos e
-viabilidade permanece no backend.
+The interface communicates only with the API. Prerequisite, timetable, course
+load, and feasibility validation remain in the backend.
 
-### API e domínio
+### API and domain
 
-O backend fica em `backend/app/`:
+The backend lives in `backend/app/`:
 
-- `api/`: rotas HTTP e serialização;
-- `engine/`: validação, planejamento automático, caminho crítico, horários,
-  recomendações e campanha de matrícula;
-- `persistence/`: modelos, repositórios e migrações SQLite;
-- `seed_import/`: importação idempotente da grade pública;
-- `importers/historico/`: leitura local de histórico acadêmico;
-- `scrapers/ufpel/`: adaptação do portal institucional.
+- `api/`: HTTP routes and serialization;
+- `engine/`: validation, automatic planning, critical path, schedules,
+  recommendations, and enrollment campaigns;
+- `persistence/`: models, repositories, and SQLite migrations;
+- `seed_import/`: idempotent import of the public curriculum;
+- `importers/historico/`: local academic-record parsing;
+- `scrapers/ufpel/`: adapters for the institutional portal.
 
-As fixtures do scraper são recortes offline de páginas públicas da UFPel. As
-listas de estudantes e dados pessoais que não participam do parsing foram
-removidos desses recortes.
+Scraper fixtures are trimmed offline snapshots of public UFPel pages. Student
+lists and unrelated personal information were removed from those snapshots.
 
-Os módulos de `engine/` recebem estruturas de dados e não acessam banco,
-arquivos ou rede. Isso permite testar as regras separadamente da API.
+Modules under `engine/` receive data structures and do not access databases,
+files, or the network. This keeps domain rules independently testable.
 
-### Dados locais
+### Local data
 
-`seed/curriculum.json` contém somente dados curriculares públicos. No primeiro
-boot, o backend cria:
+`seed/curriculum.json` contains public curriculum data only. On the first boot,
+the backend creates:
 
-- um banco em `data/app.db`;
-- um plano chamado `Meu plano`;
-- estados locais com todas as disciplinas em `falta`.
+- a database at `data/app.db`;
+- one plan named `My plan`;
+- local states with every course marked `falta` (incomplete).
 
-O diretório `data/` é ignorado pelo Git. Reimportar o seed atualiza o catálogo
-sem substituir o planejamento já salvo no banco local.
+The `data/` directory is ignored by Git. Reimporting the seed refreshes the
+catalog without replacing planning data already stored in the local database.
 
-### Importação de PDF
+### PDF import
 
-Quando o usuário escolhe importar um histórico, o arquivo é processado em
-memória para montar uma proposta de alterações. A aplicação não acompanha PDFs
-de estudantes; a suíte gera documentos fictícios em memória para testar esse
-fluxo.
+When a user imports an academic record, the PDF is processed in memory to
+produce a reviewable change proposal. Student PDFs are never tracked. The test
+suite generates fictional documents in memory to exercise this flow.
 
-## Funcionalidades implementadas
+## Implemented features
 
-- fluxograma interativo com drag and drop;
-- status, semestre de conclusão e travas por disciplina;
-- validação de pré-requisitos, oferta, carga e conflitos de horário;
-- planejamento automático e caminho crítico;
-- troca entre versões de grade e regras de transição;
-- importação revisável de histórico;
-- ofertas, recomendações e seleção de turmas;
-- requisitos de horas e optativas;
-- apoio às etapas de rematrícula, correção e matrícula especial;
-- tema claro, escuro e automático.
+- interactive curriculum graph with drag and drop;
+- course status, completion term, and manual locks;
+- prerequisite, offering, credit-load, and timetable validation;
+- automatic planning and critical-path analysis;
+- curriculum-version transitions;
+- reviewable academic-record import;
+- course offerings, recommendations, and class selection;
+- credit-hour and elective requirements;
+- support for regular, correction, and special enrollment stages;
+- light, dark, and system themes.
 
-## Limitações da demo
+## Demo limitations
 
-- não há autenticação nem isolamento entre usuários;
-- cada instalação usa um único banco local;
-- a grade inicial é específica de Engenharia de Computação da UFPel;
-- dados do portal podem mudar e o import manual continua sendo o fallback;
-- pesos de recomendação ainda precisam de feedback de uso real.
+- no authentication or user isolation;
+- one local database per installation;
+- the initial curriculum targets UFPel Computer Engineering;
+- institutional portal data may change, so manual import remains a fallback;
+- recommendation weights still require feedback from real usage.
 
-Por essas limitações, a versão atual deve ser executada localmente. Um deploy
-multiusuário exige autenticação, isolamento de dados, migrações de produção e
-política de privacidade antes de receber dados acadêmicos reais.
+The current version should therefore run locally. A multi-user deployment must
+add authentication, data isolation, production migrations, and a privacy policy
+before accepting real academic data.
 
-## Próximos passos
+## Next steps
 
-1. coletar feedback da demo;
-2. melhorar onboarding e mensagens de erro;
-3. ampliar testes de interface;
-4. decidir o modelo de autenticação e hospedagem;
-5. evoluir para múltiplos cursos sem acoplar o motor à UFPel.
+1. Collect feedback from the demo.
+2. Improve onboarding and error messages.
+3. Expand interface testing.
+4. Define the authentication and hosting model.
+5. Support additional degrees without coupling the planning engine to UFPel.

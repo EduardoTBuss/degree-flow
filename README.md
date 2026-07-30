@@ -1,17 +1,17 @@
 # Degree Flow
 
-Planejador local de grade e formatura para Engenharia de Computação da UFPel,
-com fluxograma interativo, validação de pré-requisitos e organização por semestre.
+An interactive graduation planner for UFPel Computer Engineering, with a
+visual curriculum flow, prerequisite validation, and semester planning.
 
-> Esta é uma demo local e monousuário. Ela inicia com o plano **Meu plano** e
-> todas as disciplinas marcadas como pendentes de conclusão.
+> This is a local, single-user demo. It starts with **My plan** and every
+> course marked as incomplete.
 
-## Requisitos
+## Requirements
 
 - Python 3.11+
-- Node.js 20.19+ ou 22.12+
+- Node.js 20.19+ or 22.12+
 
-## Rodar localmente
+## Run locally
 
 ### Windows (PowerShell)
 
@@ -29,38 +29,42 @@ cd degree-flow
 make run
 ```
 
-Acesse [http://localhost:8000](http://localhost:8000). O mesmo servidor entrega
-a interface e a API.
+Open [http://localhost:8000](http://localhost:8000). The same server delivers
+the interface and the API.
 
-Para reconstruir o frontend no Windows:
+To rebuild the frontend on Windows:
 
 ```powershell
 ./run.ps1 -Rebuild
 ```
 
-## Desenvolvimento
+## Development
 
-Em dois terminais:
+Run these commands in separate terminals:
 
 ```bash
-make dev-backend   # API em :8000
-make dev-frontend  # interface em :5173
+make dev-backend   # API on :8000
+make dev-frontend  # interface on :5173
 ```
 
-## Testes
+## Tests
 
 ```bash
 make test
 ```
 
-No Windows, depois de executar `run.ps1` ao menos uma vez:
+On Windows, after running `run.ps1` at least once:
 
 ```powershell
 backend/.venv/Scripts/python -m pip install -r backend/requirements-dev.txt
 backend/.venv/Scripts/python -m pytest -c backend/pytest.ini backend/tests
 ```
 
-O SQLite é criado em `data/app.db` e não é versionado. O repositório não inclui
-contas, históricos acadêmicos, bancos locais ou PDFs de estudantes.
+SQLite is created at `data/app.db` and is not tracked. The repository contains
+no accounts, academic records, local databases, or student PDFs.
 
-Detalhes técnicos: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+For technical details, see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
+## License
+
+[MIT](LICENSE) © 2026 Eduardo Timm Buss.

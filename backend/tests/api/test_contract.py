@@ -20,7 +20,7 @@ def test_health_and_seed_import(client):
 def test_fresh_boot_is_anonymous_demo(client):
     plans = client.get("/api/v1/plans").json()["plans"]
     assert len(plans) == 1
-    assert plans[0]["name"] == "Meu plano"
+    assert plans[0]["name"] == "My plan"
 
     curriculum = client.get("/api/v1/grade-versions/gv-2027-1/curriculum").json()
     assert curriculum["courses"]

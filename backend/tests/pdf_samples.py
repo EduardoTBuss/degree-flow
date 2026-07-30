@@ -49,7 +49,7 @@ def _pdf(lines: list[str], prefix: bytes = b"") -> bytes:
 def historico_pdf() -> bytes:
     return _pdf(
         [
-            "Nome: Pessoa de Teste Matricula: 00000000",
+            "Nome: Test Student Matricula: 00000000",
             "Ano/semestre: 2024/1",
             "2024/1 Componente Curricular",
             "11100058 - Calculo 1 T1 8,0 APR",
@@ -66,7 +66,7 @@ def historico_pdf() -> bytes:
 def integralizacao_pdf() -> bytes:
     return _pdf(
         [
-            "Nome Pessoa de Teste",
+            "Nome Test Student",
             "Matricula 00000000",
             "11100058 Calculo 1 DISCIPLINA 60 (2024/1) Aprovada",
             "11100110 Algebra Linear DISCIPLINA 90 11100005",

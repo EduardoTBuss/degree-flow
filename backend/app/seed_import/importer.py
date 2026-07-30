@@ -530,7 +530,7 @@ def import_seed(session: Session, seed_file: Path, force: bool = False) -> dict:
         session.add(
             Plan(
                 id=str(uuid.uuid4()),
-                name="Meu plano",
+                name="My plan",
                 grade_version_id=default_id,
                 current_term=current_term,
                 target_term=None,
